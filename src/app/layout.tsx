@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeProvider";
-import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
-import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,14 +28,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="app_layout">
-            <Header />
-            <div className="grid sm:grid-cols-[200px_1fr] grid-cols-1 ">
-              <Sidebar />
-              <main className="p-5">content</main>
-            </div>
-            <Footer />
-          </div>
           {children}
         </ThemeProvider>
       </body>

@@ -5,8 +5,11 @@ import React from "react";
 import ThemeToggler from "../ThemeToggler";
 import { Menu } from "lucide-react";
 import { Button } from "../ui/button";
+import { useSidebarStore } from "../Sidebar/store/useSidebar.store";
 
 function Header() {
+  const openSidebar = useSidebarStore((state) => state.open);
+
   return (
     <header className="bg-background py-4 border-b ">
       <div className="container mx-auto">
@@ -15,10 +18,11 @@ function Header() {
             <Button
               variant={"outline"}
               className="cursor-pointer sm:hidden block"
+              onClick={() => openSidebar()}
             >
               <Menu />
             </Button>
-            <Link href={"/"} className="inline-block">
+            <Link href={"/home"} className="inline-block">
               <h1 className="text-2xl font-bold">Quick It</h1>
             </Link>
           </div>
